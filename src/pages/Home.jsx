@@ -1,5 +1,4 @@
-import React from "react";
-import NavBar from "./components/Navbar/NavBar";
+import React,{useEffect} from "react";
 import {
   Text,
   Box,
@@ -11,13 +10,23 @@ import {
   Button,
   SimpleGrid,Flex
 } from "@chakra-ui/react";
-import Footer from "./components/Footer/Footer";
-import CardWithImagesNews from "./components/Cards/CardWithImageNews/CardWithImagesNews";
-import CardText from "./components/Cards/CardTextNews/CardTextNews";
-import CardCoursesCarousel from "./components/Cards/CardCourses/CardCourses";
 import { MdNotListedLocation, MdPhoneInTalk, MdHelp } from "react-icons/md";
-import imagebg from './assets/sede-central.jpg'
+import { Link } from "react-router-dom";
+import NavBar from "../components/Navbar/NavBar";
+import Footer from "../components/Footer/Footer";
+import CardWithImagesNews from "../components/Cards/CardWithImageNews/CardWithImagesNews";
+import CardText from "../components/Cards/CardTextNews/CardTextNews";
+import CardCoursesCarousel from "../components/Cards/CardCourses/CardCourses";
+import imagebg from '../assets/sede-central.jpg'
+
 function App() {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+          })
+      }, [])
   return (
     <>
       <NavBar />
@@ -27,7 +36,7 @@ function App() {
       >
         <Box
           w="full"
-          h={{base:"250px",md:"container.sm"}}
+          h={{base:"40vh",md:"40vh",lg:"45vh",xl:"70vh","2xl":"75vh"}}
           backgroundImage={imagebg}
           bgPos="center"
           bgSize="cover"
@@ -48,7 +57,6 @@ function App() {
           <Stack direction={["column", "column", "column", "row"]}>
             <CardWithImagesNews />
             <Stack spacing={{base:2,md:4}} direction={"column"}>
-              <CardText />
               <CardText />
               <CardText />
               <CardText />
@@ -93,6 +101,7 @@ function App() {
       <Box bg={"#ebebeb"}>
         <Container spacing={1} as={Stack} maxW={"8xl"} px={{ md: 64 }}>
           <SimpleGrid p={10} maxW={"8xl"} columns={{ base: 1, md: 3 }}>
+            <Link to="/sedes">
             <Stack
               transitionDelay="0s, 0s, 0s, 0s"
               transitionDuration=" 0.35s, 0.35s, 0.35s, 0s"
@@ -107,6 +116,7 @@ function App() {
               <MdNotListedLocation size="5rem" />
               <Heading>Encontranos</Heading>
             </Stack>
+            </Link>
             <Stack
               transitionDelay="0s, 0s, 0s, 0s"
               transitionDuration=" 0.35s, 0.35s, 0.35s, 0s"
@@ -121,6 +131,7 @@ function App() {
               <MdPhoneInTalk size="5rem" />
               <Heading>Contactanos</Heading>
             </Stack>
+            <Link to="/faq">
             <Stack
               transitionDelay="0s, 0s, 0s, 0s"
               transitionDuration=" 0.35s, 0.35s, 0.35s, 0s"
@@ -135,6 +146,7 @@ function App() {
               <MdHelp size="5rem" />
               <Heading>Te ayudamos</Heading>
             </Stack>
+            </Link>
           </SimpleGrid>
         </Container>
       </Box>
