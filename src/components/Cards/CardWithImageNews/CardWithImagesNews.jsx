@@ -1,66 +1,47 @@
 import React from "react";
-import {
-  chakra,
-  Box,
-  Image,
-  Link,
-} from "@chakra-ui/react";
-
+import { Text, Link, Image, Flex, Button, Spacer, Box } from "@chakra-ui/react";
+import { FaBeer } from "react-icons/fa";
 export default function CardWithImagesNews() {
   return (
-    <Box
-    mx="auto"
-      rounded="lg"
-      shadow="md"
-      bg={"white"}
-      maxW={{base:"xs",md:"2xl",lg:"md",xl:"2xl"}}
-      overflow="hidden"
-      display={{ base:"block", md: "block" }}
-    >
-      <Image
-        display="inline"
-        roundedTop="lg"
-        w="full"
-        h={64}
-        fit="cover"
-        src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-        alt="Article"
-        transform="scale(1.0)"
-        overflow="hidden"
-        transition="0.3s ease-in-out"
-        _hover={{
-          transform: "scale(1.05)",
-        }}
-      />
-
-      <Box p={5}>
-        <Box>
-          <chakra.span
-            fontSize="xs"
-            textTransform="uppercase"
-            fontWeight="500"
-            color={"white"}
-            bg="#54bcd9"
-            p={2}
-            borderRadius="20px"
-            w="full"
-          >
-            21 SEP 2015
-          </chakra.span>
-          <Link
-            display="block"
-            color={"#3c3c3b"}
+    <Flex w="full" overflow="hidden">
+      <Flex pos="relative" h={{base:"24vh",md:"24vh",xl:"30vh"}} w="full">
+        <Box flex="none" boxSize="full" shadow="md">
+          <Text
             fontWeight="bold"
-            fontSize="2xl"
-            my="auto"
-            _hover={{ color: "#4f4f4e", textDecor: "underline" }}
-            isTruncated
+            textTransform="uppercase"
+            fontSize="sm"
+            letterSpacing="wide"
+            color="teal.600"
+            p="8px 12px"
+            pos="absolute"
+            bottom="10"
+            whiteSpace="nowrap"
           >
-            I Built A Successful Blog In One Year I Built A Successful Blog In
-            One Year I Built A Successful Blog In One Year
+            Marketing
+          </Text>
+          <Link
+            fontSize="lg"
+            lineHeight="normal"
+            fontWeight="semibold"
+            href="#"
+            bottom="0"
+            p="8px 12px"
+            pos="absolute"
+            bottom="0"
+            whiteSpace="nowrap"
+
+          >
+            Finding customers for your new business
           </Link>
+          <Image
+            src={
+              "https://images.pexels.com/photos/3124111/pexels-photo-3124111.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+            }
+            boxSize="full"
+            backgroundSize="cover"
+          />
         </Box>
-      </Box>
-    </Box>
+      </Flex>
+    </Flex>
   );
 }
